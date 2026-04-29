@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101214">
+    <meta
+      name="description"
+      content="Homepage personale di Marco Mena: esperimenti, progetti e idee in movimento."
+    >
+    <title>mnemrc | Marco Mena</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="mnemrc home">
+        <span class="brand-mark"></span>
+        <span>mnemrc</span>
+      </a>
+      <nav aria-label="Navigazione principale">
+        <a href="#work">Progetti</a>
+        <a href="#lab">Lab</a>
+        <a href="https://github.com/mnemrc">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker">Marco Mena / personal signal</p>
+          <h1 id="hero-title">mnemrc</h1>
+          <p class="hero-text">
+            Un piccolo osservatorio digitale per codice, esperimenti e idee che
+            meritano una superficie più luminosa del solito.
+          </p>
+          <div class="hero-actions" aria-label="Azioni principali">
+            <a class="button primary" href="https://github.com/mnemrc">Esplora GitHub</a>
+            <a class="button ghost" href="#work">Entra nel radar</a>
+          </div>
+        </div>
+
+        <aside class="status-panel" aria-label="Pannello stato">
+          <div>
+            <span class="panel-label">Focus</span>
+            <strong>Build small, make it memorable.</strong>
+          </div>
+          <div class="signal-meter" aria-label="Intensità segnale">
+            <span style="--level: 72%"></span>
+          </div>
+          <dl>
+            <div>
+              <dt>Mode</dt>
+              <dd>Exploring</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>Static, fast, handmade</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="section intro" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="kicker">Selected coordinates</p>
+          <h2 id="work-title">Una pagina che non resta ferma.</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <span class="card-index">01</span>
+            <h3>Code trails</h3>
+            <p>Spazio per raccogliere repository, note tecniche e prototipi in evoluzione.</p>
+          </article>
+          <article class="project-card">
+            <span class="card-index">02</span>
+            <h3>Signal lab</h3>
+            <p>Una scena generativa reagisce al puntatore e ridisegna il mood della pagina.</p>
+          </article>
+          <article class="project-card">
+            <span class="card-index">03</span>
+            <h3>Next drop</h3>
+            <p>Una base pronta per aggiungere progetti reali, link e aggiornamenti senza attrito.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section lab" id="lab" aria-labelledby="lab-title">
+        <div class="section-heading">
+          <p class="kicker">Live console</p>
+          <h2 id="lab-title">Regola il segnale.</h2>
+        </div>
+        <div class="console">
+          <div class="console-readout" aria-live="polite">
+            <span class="readout-label">Current pulse</span>
+            <strong id="pulse-value">72%</strong>
+          </div>
+          <label class="range-control" for="intensity">
+            <span>Intensità</span>
+            <input id="intensity" type="range" min="24" max="100" value="72">
+          </label>
+          <button class="button compact" id="shuffle" type="button">Ricalibra</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Marco Mena / mnemrc.github.io</p>
+      <a href="https://github.com/mnemrc">github.com/mnemrc</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
