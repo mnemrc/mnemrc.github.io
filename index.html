@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#101214">
     <meta
       name="description"
-      content="Homepage personale di Marco Mena: networking, sistemi Linux, Kubernetes, Helm, homelab e radar ADS-B."
+      content="Homepage personale di Marco Mena: networking, sistemi Linux, homelab, radar ADS-B e statistiche del feed."
     >
     <title>mnemrc | Marco Mena</title>
     <link rel="stylesheet" href="styles.css">
@@ -23,6 +23,7 @@
         <a href="#work">Progetti</a>
         <a href="#lab">Lab</a>
         <a href="https://radar.menagroup.it">Radar</a>
+        <a href="https://stats.menagroup.it">Stats</a>
         <a href="https://github.com/mnemrc">GitHub</a>
       </nav>
     </header>
@@ -33,19 +34,19 @@
           <p class="kicker">Marco Mena / infra operations</p>
           <h1 id="hero-title">mnemrc</h1>
           <p class="hero-text">
-            Appunti e piccoli strumenti per networking, sistemi Linux, Helm e
-            Kubernetes, con qualche finestra sull'homelab e sul feed ADS-B.
+            Networking, sistemi Linux e homelab: una piccola control room per
+            firewall, feed ADS-B, radar e statistiche operative.
           </p>
           <div class="hero-actions" aria-label="Azioni principali">
-            <a class="button primary" href="https://github.com/mnemrc">Esplora GitHub</a>
-            <a class="button ghost" href="https://radar.menagroup.it">Apri radar ADS-B</a>
+            <a class="button primary" href="https://radar.menagroup.it">Apri radar ADS-B</a>
+            <a class="button ghost" href="https://stats.menagroup.it">Apri statistiche</a>
           </div>
         </div>
 
         <aside class="status-panel" aria-label="Pannello stato">
           <div>
             <span class="panel-label">Focus</span>
-            <strong>Networking, Linux, Helm, Kubernetes.</strong>
+            <strong>Networking, Linux, ADS-B radar.</strong>
           </div>
           <div class="signal-meter" aria-label="Carico laboratorio">
             <span style="--level: 72%"></span>
@@ -53,11 +54,11 @@
           <dl>
             <div>
               <dt>Mode</dt>
-              <dd id="mode-value">Cluster lab</dd>
+              <dd id="mode-value">Radar feed</dd>
             </div>
             <div>
               <dt>Stack</dt>
-              <dd>Linux, K8s, ADS-B</dd>
+              <dd>Linux, ADS-B, maps</dd>
             </div>
           </dl>
         </aside>
@@ -79,30 +80,30 @@
             <h3>ADS-B Radar</h3>
             <p>Mappa homelab per seguire il traffico aereo ricevuto dal feed ADS-B.</p>
           </a>
-          <a class="project-card" href="#lab">
+          <a class="project-card" href="https://stats.menagroup.it">
             <span class="card-index">03</span>
-            <h3>Helm / K8s lab</h3>
-            <p>Un piccolo pannello per simulare carico, profili di rete e rollout in cluster.</p>
+            <h3>ADS-B Stats</h3>
+            <p>Statistiche del ricevitore e del feed: copertura, volumi e andamento dei tracciati.</p>
           </a>
         </div>
       </section>
 
       <section class="section lab" id="lab" aria-labelledby="lab-title">
         <div class="section-heading">
-          <p class="kicker">Cluster console</p>
-          <h2 id="lab-title">Simula traffico, feed e rollout.</h2>
+          <p class="kicker">Radar console</p>
+          <h2 id="lab-title">Regola sweep, traffico e densità del feed.</h2>
         </div>
         <div class="console">
           <div class="console-readout" aria-live="polite">
-            <span class="readout-label">Cluster load</span>
+            <span class="readout-label">Signal density</span>
             <strong id="pulse-value">72%</strong>
           </div>
           <div class="console-readout profile-readout" aria-live="polite">
             <span class="readout-label">Profile</span>
-            <strong id="profile-value">Edge gateway</strong>
+            <strong id="profile-value">ADS-B receiver</strong>
           </div>
           <label class="range-control" for="intensity">
-            <span>Throughput</span>
+            <span>Sweep gain</span>
             <input id="intensity" type="range" min="24" max="100" value="72">
           </label>
           <button class="button compact" id="shuffle" type="button">Cambia profilo</button>
