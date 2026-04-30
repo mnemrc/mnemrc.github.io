@@ -2,9 +2,18 @@ const canvas = document.querySelector("#signal-field");
 const ctx = canvas.getContext("2d");
 const intensityInput = document.querySelector("#intensity");
 const pulseValue = document.querySelector("#pulse-value");
+const profileValue = document.querySelector("#profile-value");
+const modeValue = document.querySelector("#mode-value");
 const shuffleButton = document.querySelector("#shuffle");
 const meter = document.querySelector(".signal-meter span");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+const profiles = [
+  { label: "Edge gateway", mode: "Cluster lab", hueShift: 0, drift: 0.025 },
+  { label: "K8s services", mode: "Service mesh", hueShift: 42, drift: 0.038 },
+  { label: "Helm rollout", mode: "Release watch", hueShift: 84, drift: 0.018 },
+  { label: "ADS-B receiver", mode: "Homelab radar", hueShift: 126, drift: 0.03 },
+];
 
 const state = {
   dpr: Math.min(window.devicePixelRatio || 1, 2),
@@ -12,6 +21,7 @@ const state = {
   height: 0,
   intensity: Number(intensityInput.value),
   hueShift: 0,
+  profileIndex: 0,
   pointer: {
     x: 0,
     y: 0,
@@ -86,11 +96,12 @@ function drawBackground(time) {
 
 function updateNodes(time) {
   const pull = state.intensity / 100;
+  const profile = profiles[state.profileIndex];
   const centerX = state.width * 0.5;
   const centerY = state.height * 0.4;
 
   for (const node of state.nodes) {
-    const drift = Math.sin(time * 0.00035 + node.orbit * Math.PI * 2) * 0.025;
+    const drift = Math.sin(time * 0.00035 + node.orbit * Math.PI * 2) * profile.drift;
     node.vx += (centerX - node.x) * 0.000005 * pull + drift;
     node.vy += (centerY - node.y) * 0.000004 * pull;
 
@@ -208,6 +219,13 @@ function updateIntensity(value) {
   meter.style.setProperty("--level", `${state.intensity}%`);
 }
 
+function updateProfile() {
+  const profile = profiles[state.profileIndex];
+  state.hueShift = profile.hueShift;
+  profileValue.textContent = profile.label;
+  modeValue.textContent = profile.mode;
+}
+
 window.addEventListener("resize", resize);
 
 window.addEventListener("pointermove", (event) => {
@@ -228,7 +246,8 @@ intensityInput.addEventListener("input", (event) => {
 });
 
 shuffleButton.addEventListener("click", () => {
-  state.hueShift = (state.hueShift + 42) % 360;
+  state.profileIndex = (state.profileIndex + 1) % profiles.length;
+  updateProfile();
   seedNodes();
   requestStaticRender();
 });
@@ -245,4 +264,5 @@ if (typeof prefersReducedMotion.addEventListener === "function") {
 
 resize();
 updateIntensity(state.intensity);
+updateProfile();
 window.requestAnimationFrame(render);
