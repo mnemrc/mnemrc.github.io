@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>iptables Helper</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" data-i18n="appEyebrow">iptables helper</p>
+          <h1 data-i18n="appTitle">iptables command generator</h1>
+        </div>
+        <div class="topbar-tools">
+          <label class="language-control" for="languageSelect">
+            <span data-i18n="languageLabel">Language</span>
+            <select id="languageSelect">
+              <option value="en">English</option>
+              <option value="it">Italiano</option>
+            </select>
+          </label>
+          <div class="topology" aria-hidden="true">
+            <span></span>
+            <i></i>
+            <span></span>
+            <i></i>
+            <span></span>
+          </div>
+        </div>
+      </header>
+
+      <section class="workspace" aria-label="Generator" data-i18n-attr="aria-label:workspaceLabel">
+        <nav class="scenario-panel" aria-label="iptables scenarios" data-i18n-attr="aria-label:scenarioNavLabel">
+          <div class="panel-heading">
+            <h2 data-i18n="actionsTitle">Actions</h2>
+          </div>
+          <div id="scenarioList" class="scenario-list"></div>
+        </nav>
+
+        <form id="commandForm" class="form-panel">
+          <div class="panel-heading">
+            <h2 id="scenarioTitle">Parameters</h2>
+            <button
+              class="icon-button"
+              id="resetButton"
+              type="button"
+              title="Reset values"
+              data-i18n-attr="title:resetTitle"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 3-6.7" />
+                <path d="M3 3v6h6" />
+              </svg>
+              <span class="sr-only" data-i18n="resetTitle">Reset values</span>
+            </button>
+          </div>
+          <div id="fieldGrid" class="field-grid"></div>
+        </form>
+
+        <aside class="output-panel">
+          <div class="panel-heading">
+            <h2 data-i18n="commandTitle">Command</h2>
+            <button
+              class="icon-button"
+              id="copyButton"
+              type="button"
+              title="Copy command"
+              data-i18n-attr="title:copyTitle"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="9" y="9" width="11" height="11" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              <span class="sr-only" data-i18n="copyTitle">Copy command</span>
+            </button>
+          </div>
+          <pre id="commandOutput" class="command-output" aria-live="polite"></pre>
+          <div id="messageBox" class="message-box" role="status"></div>
+          <div id="notesBox" class="notes-box"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
