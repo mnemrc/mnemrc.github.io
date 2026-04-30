@@ -338,6 +338,7 @@ dd {
 }
 
 .project-card {
+  display: block;
   min-height: 240px;
   border: 1px solid var(--line);
   border-radius: 8px;
