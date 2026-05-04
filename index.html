@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#101214">
+    <meta name="theme-color" content="#02050b">
     <meta
       name="description"
       content="Homepage personale di Marco Mena: networking, sistemi Linux, homelab, radar ADS-B e statistiche del feed."
@@ -34,7 +34,7 @@
           <p class="kicker">Marco Mena / infra operations</p>
           <h1 id="hero-title">mnemrc</h1>
           <p class="hero-text">
-            Networking, sistemi Linux e homelab: una piccola control room per
+            Networking, sistemi Linux e homelab: una control room scura per
             firewall, feed ADS-B, radar e statistiche operative.
           </p>
           <div class="hero-actions" aria-label="Azioni principali">
@@ -48,8 +48,8 @@
             <span class="panel-label">Focus</span>
             <strong>Networking, Linux, ADS-B radar.</strong>
           </div>
-          <div class="signal-meter" aria-label="Carico laboratorio">
-            <span style="--level: 72%"></span>
+          <div class="signal-meter" aria-label="Densità tracce radar">
+            <span style="--level: 48%"></span>
           </div>
           <dl>
             <div>
@@ -95,16 +95,16 @@
         </div>
         <div class="console">
           <div class="console-readout" aria-live="polite">
-            <span class="readout-label">Signal density</span>
-            <strong id="pulse-value">72%</strong>
+            <span class="readout-label">Radar targets</span>
+            <strong id="pulse-value">52 tracks</strong>
           </div>
           <div class="console-readout profile-readout" aria-live="polite">
             <span class="readout-label">Profile</span>
-            <strong id="profile-value">ADS-B receiver</strong>
+            <strong id="profile-value">ADS-B live scope</strong>
           </div>
           <label class="range-control" for="intensity">
-            <span>Sweep gain</span>
-            <input id="intensity" type="range" min="24" max="100" value="72">
+            <span>Target density</span>
+            <input id="intensity" type="range" min="12" max="96" value="52">
           </label>
           <button class="button compact" id="shuffle" type="button">Cambia profilo</button>
         </div>
